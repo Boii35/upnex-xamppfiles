@@ -76,7 +76,12 @@ class ProductModel extends BaseModel
         // Query chính
         $sql = "SELECT p.*, c.name AS category_name,
                        COALESCE(p.sale_price, p.price) AS final_price,
-                       (SELECT image_path FROM product_images WHERE product_id = p.id AND is_primary = 1 LIMIT 1) AS main_image,
+                       COALESCE(
+                         (SELECT image_path FROM product_images WHERE product_id = p.id AND is_primary = 1 LIMIT 1),
+                         (SELECT image_path FROM product_images WHERE product_id = p.id ORDER BY is_primary DESC, sort_order LIMIT 1),
+                         ''
+                       ) AS main_image,
+
                        (SELECT ROUND(AVG(rating),1) FROM reviews WHERE product_id = p.id AND is_visible = 1) AS avg_rating
                 FROM products p
                 LEFT JOIN categories c ON p.category_id = c.id

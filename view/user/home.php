@@ -69,11 +69,11 @@
                   <?php if ($p0): ?>
                     <div class="hero-product-pill">
                       <img
-                        src="<?= !empty($p0['main_image']) ? BASE_URL.'/uploads/products/'.htmlspecialchars($p0['main_image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+                        src="<?= !empty($p0['main_image']) ? '/upnex/uploads/products/'.htmlspecialchars($p0['main_image']) : '/upnex/public/images/placeholder.png' ?>"
                         data-main-image="<?= htmlspecialchars((string)($p0['main_image'] ?? '')) ?>"
 
                         alt="" class="hero-product-img"
-                        onerror="this.src='<?= BASE_URL ?>/public/images/placeholder.png'">
+                        onerror="this.src='/upnex/public/images/placeholder.png'">
                       <div class="hero-product-meta p-3">
                         <div class="small text-white-50">Gợi ý</div>
                         <div class="fw-semibold text-white" style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
@@ -87,11 +87,11 @@
                   <?php if ($p1): ?>
                     <div class="hero-product-pill pill-2">
                       <img
-                        src="<?= !empty($p1['main_image']) ? BASE_URL.'/uploads/products/'.htmlspecialchars($p1['main_image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+                        src="<?= !empty($p1['main_image']) ? '/upnex/uploads/products/'.htmlspecialchars($p1['main_image']) : '/upnex/public/images/placeholder.png' ?>"
                         data-main-image="<?= htmlspecialchars((string)($p1['main_image'] ?? '')) ?>"
 
                         alt="" class="hero-product-img"
-                        onerror="this.src='<?= BASE_URL ?>/public/images/placeholder.png'">
+                        onerror="this.src='/upnex/public/images/placeholder.png'">
                       <div class="hero-product-meta p-3">
                         <div class="small text-white-50">Gợi ý</div>
                         <div class="fw-semibold text-white" style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">

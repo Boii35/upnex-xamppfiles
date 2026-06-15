@@ -8,6 +8,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="<?= BASE_URL ?>/public/css/upnex.css" rel="stylesheet">
+  
+  <!-- Admin helpers - load trước content để scripts có thể sử dụng -->
+  <script>
+    function getCsrfToken() {
+      return document.querySelector('meta[name="csrf-token"]')?.content || '';
+    }
+    
+    function adminShowToast(msg, type = 'info') {
+      if (typeof UPNEX !== 'undefined' && UPNEX.showToast) {
+        UPNEX.showToast(msg, type);
+      } else {
+        console.log('[Toast]', type.toUpperCase(), msg);
+      }
+    }
+  </script>
 </head>
 <body>
 <div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index:1100"></div>
@@ -19,7 +34,7 @@
       <div class="logo-icon logo-icon-sm"><span>U</span></div>
       <div>
         <div class="text-white fw-bold" style="font-size:.95rem;line-height:1.1">UPNEX Admin</div>
-        <div class="text-white-50" style="font-size:.7rem"><?= htmlspecialchars($admin['name']) ?></div>
+        <div class="text-white-50" style="font-size:.7rem"><?= htmlspecialchars($admin['name'] ?? '') ?></div>
       </div>
     </div>
   </div>
@@ -76,9 +91,9 @@
         <button class="btn btn-sm btn-light dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown">
           <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
                style="width:28px;height:28px;font-size:.75rem;font-weight:700">
-            <?= mb_strtoupper(mb_substr($admin['name'],0,1)) ?>
+            <?= mb_strtoupper(mb_substr($admin['name'] ?? '',0,1)) ?>
           </div>
-          <span class="d-none d-md-inline small fw-semibold"><?= htmlspecialchars($admin['name']) ?></span>
+          <span class="d-none d-md-inline small fw-semibold"><?= htmlspecialchars($admin['name'] ?? '') ?></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
           <li><span class="dropdown-item-text small text-muted"><?= htmlspecialchars($admin['position'] ?? '') ?></span></li>

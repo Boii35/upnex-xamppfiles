@@ -137,20 +137,52 @@
 
 <script>
 let currentOrderId = null;
-const updateModal  = new bootstrap.Modal(document.getElementById('updateModal'));
+let updateModal = null;
+
+function getUpdateModal() {
+  if (!updateModal) {
+    updateModal = new bootstrap.Modal(document.getElementById('updateModal'));
+  }
+  return updateModal;
+}
 
 function openUpdateModal(id, code, currentStatus) {
   currentOrderId = id;
   document.getElementById('modal-order-code').textContent = code;
   document.getElementById('modal-status').value = currentStatus;
   document.getElementById('modal-note').value   = '';
-  updateModal.show();
+  getUpdateModal().show();
 }
 
 async function doUpdateOrder() {
+  if (!currentOrderId) {
+    adminShowToast('Lỗi: Không xác định được đơn hàng.', 'danger');
+    return;
+  }
+  
   const status = document.getElementById('modal-status').value;
   const note   = document.getElementById('modal-note').value;
-  await UPNEX.adminUpdateOrder(currentOrderId, status, note);
-  updateModal.hide();
+  
+  // Gửi request
+  const fd = new FormData();
+  fd.append('csrf_token', getCsrfToken());
+  fd.append('order_id', currentOrderId);
+  fd.append('status', status);
+  fd.append('note', note);
+  
+  try {
+    const res = await fetch('?case=admin_order_update', { method: 'POST', body: fd });
+    const data = await res.json();
+    
+    if (data.success) {
+      adminShowToast('Cập nhật đơn hàng thành công!', 'success');
+      getUpdateModal().hide();
+      setTimeout(() => window.location.reload(), 1000);
+    } else {
+      adminShowToast(data.message || 'Lỗi cập nhật đơn hàng.', 'danger');
+    }
+  } catch (err) {
+    adminShowToast('Lỗi kết nối: ' + err.message, 'danger');
+  }
 }
 </script>

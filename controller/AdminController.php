@@ -98,9 +98,10 @@ class AdminController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             require_once __DIR__ . '/../model/EmployeeModel.php';
             $employee = $this->employeeModel->login(
-                $_POST['email'] ?? '',
+                strtolower(trim($_POST['email'] ?? '')),
                 $_POST['password'] ?? ''
             );
+
 
             if ($employee) {
                 // Tạo lại session ID để tránh session fixation
@@ -390,8 +391,9 @@ class AdminController
     private function adminView(string $template, array $data = []): void
     {
         extract($data);
-        $admin     = $_SESSION[SESSION_ADMIN];
-        $csrfToken = $_SESSION['csrf_token'];
+        // Có thể vào login mà chưa có SESSION_ADMIN
+        $admin     = $_SESSION[SESSION_ADMIN] ?? ['name' => '', 'position' => '', 'id' => null, 'email' => ''];
+        $csrfToken = $_SESSION['csrf_token'] ?? '';
         require_once __DIR__ . '/../view/admin/layout_header.php';
         require_once __DIR__ . '/../view/' . $template . '.php';
         require_once __DIR__ . '/../view/admin/layout_footer.php';

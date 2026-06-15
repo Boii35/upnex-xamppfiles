@@ -225,6 +225,9 @@ INSERT INTO categories (name, slug, parent_id, sort_order) VALUES
 ('Laptop',       'laptop',       NULL, 2),
 ('Tablet',       'tablet',       NULL, 3),
 ('Phụ kiện',     'phu-kien',     NULL, 4),
+('Đồng hồ thông minh', 'dong-ho-thong-minh', NULL, 5),
+('Màn hình',     'man-hinh',     NULL, 6),
+('Máy tính để bàn', 'may-tinh-de-ban', NULL, 7),
 ('iPhone',       'iphone',       1,    1),
 ('Samsung',      'samsung',      1,    2),
 ('Xiaomi',       'xiaomi',       1,    3),
@@ -236,7 +239,16 @@ INSERT INTO categories (name, slug, parent_id, sort_order) VALUES
 ('Ốp lưng',      'op-lung',      4,    1),
 ('Sạc & Cáp',    'sac-cap',      4,    2),
 ('Tai nghe',     'tai-nghe',     4,    3),
-('Bàn phím & Chuột','ban-phim-chuot',4,4);
+('Bàn phím & Chuột','ban-phim-chuot',4,4),
+('Apple Watch',  'apple-watch',  5,    1),
+('Samsung Watch', 'samsung-watch',5,   2),
+('Xiaomi Watch',  'xiaomi-watch',  5,    3),
+('Dell Monitor',  'dell-monitor',  6,    1),
+('LG Monitor',    'lg-monitor',    6,    2),
+('Samsung Monitor','samsung-monitor',6, 3),
+('iMac',          'imac',          7,    1),
+('Mac Mini',     'mac-mini',      7,    2),
+('PC Gaming',    'pc-gaming',     7,    3);
 
 -- ============================================================
 --  SEED DATA — Admin mặc định
@@ -251,6 +263,21 @@ INSERT INTO employees (name, email, password, position) VALUES
 --  SEED DATA — Sản phẩm mẫu (để test giao diện)
 -- ============================================================
 INSERT INTO products (category_id, name, slug, description, price, sale_price, stock, brand, is_featured) VALUES
+
+(11,  'Apple Watch Series 9 45mm GPS',       'apple-watch-series-9-45mm-gps', 'Apple Watch Series 9 thiết kế mỏng nhẹ, theo dõi sức khỏe nâng cao và chống nước bền bỉ.', 11990000, 10990000, 60,  'Apple',   1),
+(11,  'Apple Watch Ultra 2 49mm Titanium',   'apple-watch-ultra-2-49mm-titanium', 'Ultra 2 bền bỉ, màn hình sáng rực, hỗ trợ hoạt động thể thao đa dạng.', 24990000, NULL, 20, 'Apple', 0),
+(12,  'Samsung Galaxy Watch6 40mm',         'samsung-galaxy-watch6-40mm', 'Theo dõi nhịp tim và giấc ngủ, thiết kế nhỏ gọn phù hợp nhiều cổ tay.', 6990000, 6290000, 40, 'Samsung', 1),
+(12,  'Samsung Galaxy Watch6 Classic 47mm', 'samsung-galaxy-watch6-classic-47mm', 'Mặt xoay đặc trưng, tối ưu thao tác nhanh và hiển thị rõ ràng.', 8990000, NULL, 25, 'Samsung', 0),
+(13,  'Xiaomi Watch S3',                     'xiaomi-watch-s3', 'Màn hình AMOLED sắc nét, theo dõi thể thao và sức khỏe hằng ngày.', 2490000, 2190000, 120, 'Xiaomi', 1),
+(13,  'Xiaomi Redmi Watch 3',              'xiaomi-redmi-watch-3', 'Thiết kế nhẹ nhàng, pin bền, theo dõi hoạt động cơ bản.', 1190000, NULL, 180, 'Xiaomi', 0),
+(14,  'Dell 24 inch IPS FHD',              'dell-24-ips-fhd', 'Màn hình 24 inch IPS, màu sắc ổn định, thích hợp làm việc và giải trí.', 3290000, NULL, 70, 'Dell', 1),
+(14,  'LG 27 inch UltraFine FHD',        'lg-27-ultrafine-fhd', 'Màn hình 27 inch, hiển thị mượt, độ tương phản cao.', 4790000, 4490000, 45, 'LG', 1),
+(15,  'Samsung LED 24 inch',              'samsung-led-24-inch', 'Màn hình chuẩn giải trí, thiết kế gọn gàng, lắp đặt dễ dàng.', 2190000, NULL, 90, 'Samsung', 0),
+
+(16,  'iMac 24 inch M3 8-core 256GB',      'imac-24-m3-8core-256gb', 'iMac 24 inch M3 mạnh mẽ, màn hình 4.5K rực rỡ, hiệu năng ổn định cho học tập/làm việc.', 28990000, 26990000, 10, 'Apple', 1),
+(17,  'Mac mini M2 256GB',                 'mac-mini-m2-256gb', 'Mac mini M2 nhỏ gọn, hiệu năng cao, phù hợp tối ưu hệ thống.', 19990000, NULL, 12, 'Apple', 0),
+(18,  'PC Gaming i7 13700KF RTX 4060 16GB', 'pc-gaming-i7-13700kf-rtx-4060-16gb', 'Cấu hình cân bằng hiệu năng cho game eSports và đồ họa phổ thông.', 32990000, 29990000, 8, 'Intel', 1),
+
 (5,  'iPhone 16 Pro Max 256GB Titan Đen',       'iphone-16-pro-max-256gb', 'iPhone 16 Pro Max với chip A18 Pro mạnh mẽ, camera 48MP, màn hình 6.9 inch ProMotion 120Hz.', 34990000, 32990000, 50,  'Apple',   1),
 (5,  'iPhone 15 128GB',                          'iphone-15-128gb',         'iPhone 15 với Dynamic Island, camera 48MP, sạc USB-C tiện lợi.',                                  22990000, 20990000, 80,  'Apple',   0),
 (6,  'Samsung Galaxy S25 Ultra 512GB',           'samsung-s25-ultra-512gb', 'Samsung Galaxy S25 Ultra với bút S-Pen tích hợp, camera 200MP, chip Snapdragon 8 Elite.',        29990000, 27990000, 40,  'Samsung', 1),

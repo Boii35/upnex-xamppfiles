@@ -103,7 +103,7 @@ upnex/
 - ✅ Cookie "Nhớ đăng nhập" 30 ngày (HttpOnly, token hash)
 - ✅ Tìm kiếm AJAX autocomplete realtime
 - ✅ Lọc sản phẩm (danh mục, thương hiệu, giá)
-- ✅ Giỏ hàng lưu DB (AJAX update/delete)
+- ✅ Giỏ hàng lưu DB (AJAX update/delete/add)
 - ✅ Thanh toán: COD, Chuyển khoản, MoMo, VNPay
 - ✅ Áp dụng voucher (kiểm tra ràng buộc đầy đủ)
 - ✅ Theo dõi trạng thái đơn hàng (timeline)
@@ -111,7 +111,7 @@ upnex/
 - ✅ Đánh giá sản phẩm (sao + bình luận)
 - ✅ Hạng VIP: Silver → Gold → Diamond
 - ✅ Đổi mật khẩu (AJAX)
-
+- Xem email do admin gửi tự động 
 ### Phía Admin (Session bảo vệ)
 - ✅ Dashboard thống kê + biểu đồ Chart.js
 - ✅ Quản lý sản phẩm (CRUD + upload ảnh multiple)
@@ -122,7 +122,7 @@ upnex/
 - ✅ Quản lý voucher (tạo, xóa, xem progress)
 - ✅ Quản lý đánh giá (ẩn/hiện AJAX)
 - ✅ Báo cáo doanh thu (tuần/tháng/năm) + biểu đồ dual-axis
-
+- Khuyến mãi sản phẩm
 ---
 
 ## 📧 Cài PHPMailer (Giai đoạn 5)

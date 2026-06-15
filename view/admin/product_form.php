@@ -132,7 +132,7 @@
         <?php if ($product && !empty($product['images'])): ?>
           <div class="d-flex flex-wrap gap-2 mb-3">
             <?php foreach ($product['images'] as $img): ?>
-              <img src="<?= BASE_URL.'/uploads/products/'.htmlspecialchars($img['image_path']) ?>"
+              <img src="/upnex/uploads/products/<?= htmlspecialchars($img['image_path']) ?>"
                    alt="" style="width:60px;height:60px;object-fit:contain;border-radius:6px;background:#f8f9fa;padding:3px;border:1px solid #dee2e6"
                    <?= $img['is_primary'] ? 'style="border-color:#0d6efd!important"' : '' ?>>
             <?php endforeach; ?>

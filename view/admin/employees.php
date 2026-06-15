@@ -88,7 +88,7 @@
 async function toggleEmployee(id, btn) {
   if (!confirm('Xác nhận thay đổi trạng thái nhân viên này?')) return;
   const fd = new FormData();
-  fd.append('csrf_token', document.querySelector('meta[name="csrf-token"]').content);
+  fd.append('csrf_token', getCsrfToken());
   fd.append('id', id);
   const res  = await fetch('?case=admin_employee_lock', { method: 'POST', body: fd });
   const data = await res.json();
@@ -106,7 +106,7 @@ async function toggleEmployee(id, btn) {
       badge.textContent = locked ? 'Hoạt động' : 'Đã khóa';
       badge.className   = 'badge ' + (locked ? 'bg-success' : 'bg-danger');
     }
-    UPNEX.showToast(locked ? 'Đã mở khóa nhân viên.' : 'Đã khóa nhân viên.', 'info');
+    adminShowToast(locked ? 'Đã mở khóa nhân viên.' : 'Đã khóa nhân viên.', 'info');
   }
 }
 </script>

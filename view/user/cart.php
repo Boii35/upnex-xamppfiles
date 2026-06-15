@@ -32,7 +32,7 @@
             <div class="cart-item d-flex align-items-center gap-3" id="cart-row-<?= $item['id'] ?>">
               <!-- Ảnh -->
               <a href="?case=product_detail&id=<?= $item['product_id'] ?>">
-                <img src="<?= $item['image'] ? BASE_URL.'/uploads/products/'.htmlspecialchars($item['image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+                <img src="<?= $item['image'] ? '/upnex/uploads/products/'.htmlspecialchars($item['image']) : '/upnex/public/images/placeholder.png' ?>"
                      alt="<?= htmlspecialchars($item['name']) ?>" class="cart-img">
               </a>
               <!-- Tên + giá -->

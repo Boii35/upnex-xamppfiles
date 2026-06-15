@@ -258,8 +258,9 @@ class OrderModel extends BaseModel
             // 7. Gửi email xác nhận đặt hàng (sau commit để không block transaction)
             $this->sendOrderConfirmEmail($userId, $orderId, $cartItems);
 
+            // Đối với MoMo: cần đi qua trang thanh toán
             return ['success' => true, 'order_id' => $orderId, 'order_code' => $orderCode, 'total' => $total,
-                    'need_payment' => in_array($data['payment_method'] ?? 'cod', ['momo'])];
+                    'need_payment' => ($data['payment_method'] ?? 'cod') === 'momo'];
 
         } catch (\Exception $e) {
             $this->db->rollback();

@@ -91,7 +91,7 @@
           <div class="mb-3" style="max-height:280px;overflow-y:auto">
             <?php foreach ($items as $item): ?>
               <div class="d-flex align-items-center gap-2 mb-2 pb-2 border-bottom">
-                <img src="<?= $item['image'] ? BASE_URL.'/uploads/products/'.htmlspecialchars($item['image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+                <img src="<?= $item['image'] ? '/upnex/uploads/products/'.htmlspecialchars($item['image']) : '/upnex/public/images/placeholder.png' ?>"
                      alt="" style="width:48px;height:48px;object-fit:contain;background:#f8f9fa;border-radius:6px;padding:3px">
                 <div class="flex-grow-1 min-w-0">
                   <div class="small fw-semibold text-truncate"><?= htmlspecialchars($item['name']) ?></div>

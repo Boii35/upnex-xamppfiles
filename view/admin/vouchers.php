@@ -153,11 +153,11 @@
 async function deleteVoucher(id, btn) {
   if (!confirm('Xóa voucher này?')) return;
   const fd = new FormData();
-  fd.append('csrf_token', document.querySelector('meta[name="csrf-token"]').content);
+  fd.append('csrf_token', getCsrfToken());
   fd.append('id', id);
-  const res  = await fetch('?case=admin_voucher_delete', { method:'POST', body: fd });
+  const res  = await fetch('?case=admin_voucher_delete', { method: 'POST', body: fd });
   const data = await res.json();
-  if (data.success) { btn.closest('tr').remove(); UPNEX.showToast('Đã xóa voucher.','success'); }
+  if (data.success) { btn.closest('tr').remove(); adminShowToast('Đã xóa voucher.','success'); }
 }
 
 function genCode() {

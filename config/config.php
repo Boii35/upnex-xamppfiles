@@ -37,15 +37,13 @@ define('ITEMS_PER_PAGE', 12);
 
 // ============================================================
 //  📧 PHPMailer — Gmail SMTP
-//  Hướng dẫn lấy App Password:
-//  Google Account → Bảo mật → Xác minh 2 bước → App Password
 // ============================================================
-define('MAIL_ENABLED',    false);                  // ← Đổi true sau khi cấu hình
+define('MAIL_ENABLED',    true);                  
 define('MAIL_HOST',       'smtp.gmail.com');
 define('MAIL_PORT',       587);
-define('MAIL_USERNAME',   'your_gmail@gmail.com'); // ← Gmail của bạn
-define('MAIL_PASSWORD',   'xxxx xxxx xxxx xxxx'); // ← App Password 16 ký tự
-define('MAIL_FROM',       'your_gmail@gmail.com'); // ← Giống MAIL_USERNAME
+define('MAIL_USERNAME',   'sherrysherrynn59@gmail.com'); 
+define('MAIL_PASSWORD',   'zpaf ywyq btam urws'); 
+define('MAIL_FROM',       'sherrysherrynn59@gmail.com'); 
 define('MAIL_FROM_NAME',  APP_NAME . ' Store');
 
 // ============================================================
@@ -53,12 +51,16 @@ define('MAIL_FROM_NAME',  APP_NAME . ' Store');
 //  Thông tin sandbox chính thức từ MoMo Developer Portal
 //  Đăng ký: https://developers.momo.vn
 // ============================================================
-define('MOMO_ENABLED',      true);                 // Sandbox luôn bật được
-define('MOMO_ENV',          'sandbox');            // 'sandbox' | 'production'
+// Bật momo
+define('MOMO_ENABLED',      true);             
+define('MOMO_ENV',          'sandbox');            
+// Mặc định của momo
 define('MOMO_PARTNER_CODE', 'MOMOBKUN20180529');   // Sandbox partner code
 define('MOMO_ACCESS_KEY',   'klm05TvNBzhg7h7j');  // Sandbox access key
 define('MOMO_SECRET_KEY',   'at67qH6mk8w5Y1nAyMoTku1i08zALTH7'); // Sandbox secret
+// Endpoint tạo thanh toán 
 define('MOMO_ENDPOINT',     'https://test-payment.momo.vn/v2/gateway/api/create');
+// Redirect về web 
 define('MOMO_REDIRECT_URL', BASE_URL . '/?case=momo_return');
 define('MOMO_IPN_URL',      BASE_URL . '/?case=momo_ipn');
 // Tài khoản test sandbox MoMo:

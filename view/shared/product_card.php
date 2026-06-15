@@ -18,7 +18,7 @@ $salePercent   = ($originalPrice && $originalPrice > $finalPrice)
 
     <!-- Ảnh -->
     <a href="?case=product_detail&id=<?= $p['id'] ?>" class="d-block product-img-wrap">
-      <img src="<?= $mainImage ? BASE_URL.'/uploads/products/'.htmlspecialchars($mainImage) : BASE_URL.'/public/images/placeholder.png' ?>"
+      <img src="<?= $mainImage ? '/upnex/uploads/products/'.htmlspecialchars($mainImage) : '/upnex/public/images/placeholder.png' ?>"
            alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy">
     </a>
 

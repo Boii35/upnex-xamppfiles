@@ -45,7 +45,7 @@
         <?php foreach ($products as $p): ?>
           <tr>
             <td>
-              <img src="<?= $p['main_image'] ? BASE_URL.'/uploads/products/'.htmlspecialchars($p['main_image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+              <img src="<?= $p['main_image'] ? '/upnex/uploads/products/'.htmlspecialchars($p['main_image']) : '/upnex/public/images/placeholder.png' ?>"
                    alt="" style="width:48px;height:48px;object-fit:contain;background:#f8f9fa;border-radius:6px;padding:3px">
             </td>
             <td>
@@ -104,13 +104,13 @@
 async function deleteProduct(id, btn) {
   if (!confirm('Ẩn sản phẩm này?')) return;
   const fd = new FormData();
-  fd.append('csrf_token', document.querySelector('meta[name="csrf-token"]').content);
+  fd.append('csrf_token', getCsrfToken());
   fd.append('id', id);
   const res  = await fetch('?case=admin_product_delete', { method: 'POST', body: fd });
   const data = await res.json();
   if (data.success) {
     btn.closest('tr').remove();
-    UPNEX.showToast('Đã ẩn sản phẩm.', 'success');
+    adminShowToast('Đã ẩn sản phẩm.', 'success');
   }
 }
 </script>

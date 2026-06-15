@@ -131,15 +131,15 @@
 async function deleteCat(id, btn) {
   if (!confirm('Xóa danh mục này? Các sản phẩm thuộc danh mục sẽ không bị xóa.')) return;
   const fd = new FormData();
-  fd.append('csrf_token', document.querySelector('meta[name="csrf-token"]').content);
+  fd.append('csrf_token', getCsrfToken());
   fd.append('id', id);
   const res  = await fetch('?case=admin_category_delete', { method: 'POST', body: fd });
   const data = await res.json();
   if (data.success) {
     btn.closest('tr').remove();
-    UPNEX.showToast('Đã xóa danh mục.', 'success');
+    adminShowToast('Đã xóa danh mục.', 'success');
   } else {
-    UPNEX.showToast('Không thể xóa danh mục này.', 'danger');
+    adminShowToast('Không thể xóa danh mục này.', 'danger');
   }
 }
 </script>

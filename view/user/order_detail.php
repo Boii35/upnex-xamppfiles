@@ -94,7 +94,7 @@
         <h6 class="fw-bold mb-3">Sản phẩm đã đặt</h6>
         <?php foreach ($order['items'] as $item): ?>
           <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
-            <img src="<?= $item['image'] ? BASE_URL.'/uploads/products/'.htmlspecialchars($item['image']) : BASE_URL.'/public/images/placeholder.png' ?>"
+            <img src="<?= $item['image'] ? '/upnex/uploads/products/'.htmlspecialchars($item['image']) : '/upnex/public/images/placeholder.png' ?>"
                  alt="" style="width:60px;height:60px;object-fit:contain;background:#f8f9fa;border-radius:8px;padding:4px">
             <div class="flex-grow-1">
               <div class="fw-semibold small"><?= htmlspecialchars($item['product_name']) ?></div>

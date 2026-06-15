@@ -19,7 +19,7 @@
       <div class="product-detail-img-main mb-3" id="main-img-wrap">
         <?php $mainImg = $product['images'][0]['image_path'] ?? ''; ?>
         <img id="main-img"
-             src="<?= $mainImg ? BASE_URL.'/uploads/products/'.htmlspecialchars($mainImg) : BASE_URL.'/public/images/placeholder.png' ?>"
+             src="<?= $mainImg ? '/upnex/uploads/products/'.htmlspecialchars($mainImg) : '/upnex/public/images/placeholder.png' ?>"
              alt="<?= htmlspecialchars($product['name']) ?>">
       </div>
       <!-- Thumbnails -->
@@ -27,8 +27,8 @@
         <div class="d-flex gap-2 flex-wrap">
           <?php foreach ($product['images'] as $idx => $img): ?>
             <div class="product-thumb <?= $idx === 0 ? 'active' : '' ?>"
-                 onclick="switchImg(this, '<?= BASE_URL.'/uploads/products/'.htmlspecialchars($img['image_path']) ?>')">
-              <img src="<?= BASE_URL.'/uploads/products/'.htmlspecialchars($img['image_path']) ?>"
+                 onclick="switchImg(this, '/upnex/uploads/products/<?= htmlspecialchars($img['image_path']) ?>')">
+              <img src="/upnex/uploads/products/<?= htmlspecialchars($img['image_path']) ?>"
                    alt="Ảnh <?= $idx + 1 ?>">
             </div>
           <?php endforeach; ?>
